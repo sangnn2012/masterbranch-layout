@@ -87,8 +87,8 @@ export default {
   computed: {
     screenWidth() {
       return window.innerWidth;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -144,6 +144,9 @@ body {
   #app {
     .app-wrapper {
       padding: 40px 30px;
+      .card-3 {
+        margin-top: 20px;
+      }
       .header {
         &__main {
           font-size: 1.3rem;
