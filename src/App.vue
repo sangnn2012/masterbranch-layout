@@ -9,12 +9,38 @@
         <div class="description" v-html="description"></div>
       </div>
       <div class="cards-wrapper">
-        <Card
+        <!-- <Card
           v-for="card of cards"
           :key="`card-${card.title}`"
           :color="card.color"
           :title="card.title"
           :description="card.description"
+        /> -->
+        <Card
+          class="card-1"
+          :color="cards[0].color"
+          :title="cards[0].title"
+          :description="cards[0].description"
+        />
+        <div>
+          <Card
+            class="card-2"
+            :color="cards[1].color"
+            :title="cards[1].title"
+            :description="cards[1].description"
+          />
+          <Card
+            class="card-3"
+            :color="cards[2].color"
+            :title="cards[2].title"
+            :description="cards[2].description"
+          />
+        </div>
+        <Card
+          class="card-4"
+          :color="cards[3].color"
+          :title="cards[3].title"
+          :description="cards[3].description"
         />
       </div>
     </div>
@@ -58,6 +84,11 @@ export default {
       ],
     };
   },
+  computed: {
+    screenWidth() {
+      return window.innerWidth;
+    }
+  }
 };
 </script>
 
@@ -71,6 +102,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 15px;
   font-weight: 400;
+  box-sizing: border-box;
 }
 
 #app {
@@ -79,7 +111,10 @@ body {
   width: 100%;
   height: 100%;
   .app-wrapper {
-    padding: 40px 35px;
+    padding: 40px 55px;
+    .card-3 {
+      margin-top: 45px;
+    }
     .header {
       text-align: center;
       &__main {
@@ -100,12 +135,15 @@ body {
     .cards-wrapper {
       display: flex;
       margin-top: 30px;
+      justify-content: space-evenly;
+      align-items: center;
     }
   }
 }
 @media (max-width: 375px) {
   #app {
     .app-wrapper {
+      padding: 40px 30px;
       .header {
         &__main {
           font-size: 1.3rem;
